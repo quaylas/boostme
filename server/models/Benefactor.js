@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const Donation = require('./Donation')
 
 const benefactorSchema = new Schema({
     benefactorName: {
@@ -15,13 +16,7 @@ const benefactorSchema = new Schema({
         type: Number,
         required: true
     },
-    donations:[
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Donation'
-        }
-    ], 
-    donationTotal
+    donations: [Donation.schema]
 },
 {
     toJSON: {
@@ -29,7 +24,7 @@ const benefactorSchema = new Schema({
     }
 });
 
-userSchema.virtual('donationTotal').get(function() {
+benefactorSchema.virtual('donationTotal').get(function() {
     if(this.donations.length){
         let sum = 0;
         for(let i = 0; i < this.donations.length; i++){
@@ -40,6 +35,6 @@ userSchema.virtual('donationTotal').get(function() {
     return 0;
 });
 
-const Benefactor = model('Benefactor', benefactorSchema);
+const Benefactor = mongoose.model('Benefactor', benefactorSchema); //added  mongoose before models.
 
 module.exports = Benefactor;

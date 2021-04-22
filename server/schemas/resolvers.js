@@ -24,20 +24,16 @@ const resolvers = {
             return donationData;
         },
 
-        getDonation: async (parent, args) => {
-            const donation = await Donation.find(
-                {_id: args._id}
-                
-            ).select("-__v")
+        getDonation: async (parent, { _id }) => {
+            const donation = await Donation.findOne({ _id });
 
             return donation;
         },
 
-        getBenefactor: async (parent, {benefactorName}) => {
-            const benefactor = await Benefactor.find(
-                {benefactorName: benefactorName}
-                
-            ).select("-__v").populate("donations")
+        getBenefactor: async (parent, { benefactorName }) => {
+            const benefactor = await Benefactor.findOne({ benefactorName: benefactorName })
+                .select("-__v")
+                .populate("donations")
 
             return benefactor;
         },
@@ -70,21 +66,38 @@ const resolvers = {
         addDonation: async (parent, args, context) => {
             const donation = await Donation.create({...args, donorEmail: context.user.email});
 
-                 await User.findByIdAndUpdate(
+                await User.findByIdAndUpdate(
                     { _id: context.user._id},
                     { $push: {donations: donation._id} },
                     {new: true }
-                 );
+                );
 
-                 await Benefactor.findOneAndUpdate(
+                await Benefactor.findOneAndUpdate(
                     { benefactorName: args.benefactor},
                     { $push: {donations: donation._id} },
                     {new: true }
-                 );
+                );
 
 
             return donation;
             
+        },
+        deleteDonation: async (parent, args, context) => {
+            if(context.user) {
+                const deletedDonation = await Donation.findByIdAndDelete(
+                    { _id: args._id }
+                );
+
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { donations: {_id: args._id } } },
+                    { new: true }
+                );
+
+                return updatedUser;
+            }
+
+            throw new AuthenticationError('You\'re not logged in!');
         },
 
         login: async (parent, { email, password }) => {
@@ -105,10 +118,7 @@ const resolvers = {
 
             const token = signToken(user);
             return { token, user };
-        },
-            //getBenefactors
-
-
+        }
     }
 };
 

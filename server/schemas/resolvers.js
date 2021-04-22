@@ -38,6 +38,14 @@ const resolvers = {
             return benefactor;
         },
 
+        getFilteredBenefactors: async (parent, { searchTerm }, context) => {
+            const benefactors = await Benefactor.find(
+                { benefactorName: { $regex: searchTerm, $options: 'i' } }, 'benefactorName age about')
+                .exec();
+
+            return benefactors;
+        },
+
         getBenefactors: async (parent, args) => {
             const benefactordata = await Benefactor.find().sort({createdAt: -1 })
 
@@ -82,6 +90,7 @@ const resolvers = {
             return donation;
             
         },
+
         deleteDonation: async (parent, args, context) => {
             if(context.user) {
                 const deletedDonation = await Donation.findByIdAndDelete(

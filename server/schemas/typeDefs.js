@@ -37,6 +37,7 @@ const typeDefs = gql`
     type Query {
         me: User
         getBenefactors: [Benefactor]
+        getFilteredBenefactors(searchTerm: String!): [Benefactor]
         getBenefactor(benefactorName: String!): Benefactor
         getDonations: [Donation]
         getDonation(_id: ID!): Donation

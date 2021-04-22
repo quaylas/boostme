@@ -40,6 +40,7 @@ const typeDefs = gql`
         getFilteredBenefactors(searchTerm: String!): [Benefactor]
         getBenefactor(benefactorName: String!): Benefactor
         getDonations: [Donation]
+        getFilteredDonations(searchTerm: String!): [Donation]
         getDonation(_id: ID!): Donation
 
     }

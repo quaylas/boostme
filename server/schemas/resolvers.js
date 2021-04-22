@@ -19,9 +19,26 @@ const resolvers = {
         },
 
         getDonations: async ( parent, args, context) => { 
-            const donationData = await Donation.find().sort({ createdAt: -1 })
+            if(context.user){
+                const donationData = await Donation.find().sort({ createdAt: -1 })
 
             return donationData;
+            }
+            throw new AuthenticationError('You\'re not logged in!');
+        },
+
+        getFilteredDonations: async (parent, { searchTerm }, context ) => {
+            
+            const donations = await Donation.find(
+                {
+                    $or: [
+                        { benefactor: { $regex: searchTerm, $options: 'i' } },
+                        { donorEmail: { $regex: searchTerm, $options: 'i' } }
+                    ]
+                }
+            ).exec();
+
+            return donations;
         },
 
         getDonation: async (parent, { _id }) => {

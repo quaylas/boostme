@@ -48,7 +48,7 @@ const typeDefs = gql`
         addUser(firstName: String!, lastName: String!, email: String!, password: String!):  Auth
         addDonation(benefactor: String!, amount: Float!): Donation
         addBenefactor(benefactorName: String!, about: String!, age: Int!): Benefactor
-        
+        deleteDonation(_id: ID!): User
     }
 `;
 

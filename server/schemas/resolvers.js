@@ -24,6 +24,24 @@ const resolvers = {
             return donationData;
         },
 
+        getDonation: async (parent, args) => {
+            const donation = await Donation.find(
+                {_id: args._id}
+                
+            ).select("-__v")
+
+            return donation;
+        },
+
+        getBenefactor: async (parent, {benefactorName}) => {
+            const benefactor = await Benefactor.find(
+                {benefactorName: benefactorName}
+                
+            ).select("-__v").populate("donations")
+
+            return benefactor;
+        },
+
         getBenefactors: async (parent, args) => {
             const benefactordata = await Benefactor.find().sort({createdAt: -1 })
 

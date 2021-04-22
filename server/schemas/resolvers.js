@@ -1,7 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Donation, Benefactor } = require('../models');
 const { signToken } = require('../utils/auth');
 const { decode } = require('jsonwebtoken');
+const { user } = require('../config/connection');
 
 const resolvers = {
     Query: {
@@ -9,13 +10,29 @@ const resolvers = {
             if(context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
-                .populate(donations)
+                .populate("donations")
 
                 return userData;
             }
 
             throw new AuthenticationError('You\'re not logged in!');
+        },
+
+        getDonations: async ( parent, args, context) => { 
+            const donationData = await Donation.find().sort({ createdAt: -1 })
+
+            return donationData;
+        },
+
+        getBenefactors: async (parent, args) => {
+            const benefactordata = await Benefactor.find().sort({createdAt: -1 })
+
+            .select('-__v')
+            .populate("donations")
+            return benefactordata;
         }
+
+
     },
 
     Mutation: {
@@ -24,6 +41,32 @@ const resolvers = {
             const token = signToken(user);
 
             return { token, user };
+        },
+
+        addBenefactor: async (parent, args) => {
+            const benefactor = await Benefactor.create(args)
+
+            return benefactor;
+        },
+
+        addDonation: async (parent, args, context) => {
+            const donation = await Donation.create({...args, donorEmail: context.user.email});
+
+                 await User.findByIdAndUpdate(
+                    { _id: context.user._id},
+                    { $push: {donations: donation._id} },
+                    {new: true }
+                 );
+
+                 await Benefactor.findOneAndUpdate(
+                    { benefactorName: args.benefactor},
+                    { $push: {donations: donation._id} },
+                    {new: true }
+                 );
+
+
+            return donation;
+            
         },
 
         login: async (parent, { email, password }) => {
@@ -45,6 +88,9 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+            //getBenefactors
+
+
     }
 };
 

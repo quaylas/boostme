@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const Donation = require('./Donation')
 
 const benefactorSchema = new Schema({
     benefactorName: {
@@ -16,7 +15,13 @@ const benefactorSchema = new Schema({
         type: Number,
         required: true
     },
-    donations: [Donation.schema]
+    donations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Donation'
+        }
+
+    ]
 },
 {
     toJSON: {

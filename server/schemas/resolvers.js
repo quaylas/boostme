@@ -41,34 +41,51 @@ const resolvers = {
             return donations;
         },
 
-        getDonation: async (parent, { _id }) => {
-            const donation = await Donation.findOne({ _id });
+        getDonation: async (parent, { _id }, context) => {
+            if(context.user){
+                const donation = await Donation.findOne({ _id });
 
             return donation;
+            }
+
+            throw new AuthenticationError('You\'re not logged in!');
+
         },
 
-        getBenefactor: async (parent, { benefactorName }) => {
-            const benefactor = await Benefactor.findOne({ benefactorName: benefactorName })
+        getBenefactor: async (parent, { benefactorName }, context) => {
+            if(context.user) {
+                const benefactor = await Benefactor.findOne({ benefactorName: benefactorName })
                 .select("-__v")
                 .populate("donations")
 
             return benefactor;
+            }
+            
+            throw new AuthenticationError('You\'re not logged in!');
         },
 
         getFilteredBenefactors: async (parent, { searchTerm }, context) => {
+            if(context.user) {
             const benefactors = await Benefactor.find(
                 { benefactorName: { $regex: searchTerm, $options: 'i' } }, 'benefactorName age about')
                 .exec();
 
             return benefactors;
+            }
+
+            throw new AuthenticationError('You\'re not logged in!');
         },
 
-        getBenefactors: async (parent, args) => {
+        getBenefactors: async (parent, args, context) => {
+            if(context.user) {
             const benefactordata = await Benefactor.find().sort({createdAt: -1 })
-
             .select('-__v')
-            .populate("donations")
+            .populate("donations");
+
             return benefactordata;
+            }
+
+            throw new AuthenticationError('You\'re not logged in!');
         }
 
 
@@ -89,6 +106,7 @@ const resolvers = {
         },
 
         addDonation: async (parent, args, context) => {
+            if(context.user) {
             const donation = await Donation.create({...args, donorEmail: context.user.email});
 
                 await User.findByIdAndUpdate(
@@ -103,9 +121,10 @@ const resolvers = {
                     {new: true }
                 );
 
-
             return donation;
+            }
             
+            throw new AuthenticationError('You\'re not logged in!');
         },
 
         deleteDonation: async (parent, args, context) => {

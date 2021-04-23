@@ -12,6 +12,10 @@ const typeDefs = gql`
         donationTotal: Float
     }
 
+    type Checkout {
+        session: ID
+    }
+
     type Donation {
         _id: ID
         donationDate: String
@@ -19,6 +23,12 @@ const typeDefs = gql`
         benefactor: String
         amount: Float
         message: String
+    }
+
+    type Order {
+        _id: ID
+        purchaseDate: String
+        donations: [Donation]
     }
 
     type User {
@@ -42,7 +52,8 @@ const typeDefs = gql`
         getDonations: [Donation]
         getFilteredDonations(searchTerm: String!): [Donation]
         getDonation(_id: ID!): Donation
-
+        checkout(products: [ID]!): Checkout
+        order(_id: ID!): Order
     }
     
     type Mutation {
@@ -50,6 +61,7 @@ const typeDefs = gql`
         addUser(firstName: String!, lastName: String!, email: String!, password: String!):  Auth
         addDonation(benefactor: String!, amount: Float!, message: String): Donation
         addBenefactor(benefactorName: String!, about: String!, age: Int!): Benefactor
+        addOrder(donations: [ID]!): Order
         deleteDonation(_id: ID!): User
     }
 `;

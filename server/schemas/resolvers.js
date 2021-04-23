@@ -1,5 +1,6 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
-const { User, Donation, Benefactor } = require('../models');
+const { User, Donation, Benefactor, Order } = require('../models');
+
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe');
 
@@ -87,14 +88,22 @@ const resolvers = {
             throw new AuthenticationError('You\'re not logged in!');
         },
 
+        getOrders: async ( parent, args, context) => { 
+            if(context.user){
+                const orderdata = await Order.find().sort({ createdAt: -1 })
+                .populate("donations");
+
+            return orderdata;
+            }
+            throw new AuthenticationError('You\'re not logged in!');
+        },
+
         order:  async(parent, { _id }, context) => {
             if(context.user){
-                const user = await UserInputError.findById(context.user._id).populate({
-                    path: 'orders.donations',
-                    populate: 'benefactor'
-                });
+                const order = await Order.findOne({_id}).populate(
+                'donations');
 
-                return user.orders.id(_id);
+                return order;
             }
 
             throw new AuthenticationError('You\'re not logged in!');
@@ -175,13 +184,16 @@ const resolvers = {
             throw new AuthenticationError('You\'re not logged in!');
         },
 
-        addOrder: async (parent, { donations }, context) => {
+        addOrder: async (parent, args, context) => {
             if (context.user){
-                const order = new Order({ donations });
+                const order =  await Order.create({...args})
+                .populate("donations");
 
-                // update a user object??
-
-                return order;
+                await User.findByIdAndUpdate(
+                    context.user._id, { $push: {}} 
+                );
+                
+                return order; 
             }
 
             throw new AuthenticationError('You\'re not logged in!');

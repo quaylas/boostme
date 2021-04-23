@@ -37,6 +37,7 @@ const typeDefs = gql`
         lastName: String
         email: String
         donations: [Donation]
+        orders: [Order]
     }
 
     type Auth {
@@ -52,6 +53,7 @@ const typeDefs = gql`
         getDonations: [Donation]
         getFilteredDonations(searchTerm: String!): [Donation]
         getDonation(_id: ID!): Donation
+        getOrders: [Order]
         checkout(products: [ID]!): Checkout
         order(_id: ID!): Order
     }

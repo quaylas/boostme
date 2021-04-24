@@ -3,8 +3,6 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import './App.css';
 import Header from '../src/Components/Header';
-//import Carousel from '../src/Components/Carousel';
-//import Hero from './Components/Hero';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Signup from './pages/Signup';

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config('../.env');
 
-const secret =  'mysecretsshhhhh';//process.env.JWT_SECRET; could not query with this. Not sure why asked for secret to have a value
+const secret =  process.env.JWT_SECRET; 
 const expiration = '2h';
 
 module.exports = {

@@ -25,6 +25,11 @@ const donationSchema = new Schema({
     message: {
         type: String,
         maxlength: 200
+    },
+    donorName: {
+        type:String,
+        maxlength: 30,
+       
     }
 },
 {

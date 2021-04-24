@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } =  mongoose;
+const Order = require('./Order');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -30,8 +31,16 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Donation'
         }
+    ],
+    orders: //[Order.schema]
+    [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Order'
+        }
     ]
 },
+
 {
     toJSON: {
         virtuals: true

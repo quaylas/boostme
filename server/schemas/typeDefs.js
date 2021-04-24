@@ -1,5 +1,7 @@
 const { gql } = require('apollo-server-express');
 
+
+
 const typeDefs = gql`
     type Benefactor {
         _id: ID
@@ -10,6 +12,10 @@ const typeDefs = gql`
         donationTotal: Float
     }
 
+    type Checkout {
+        session: ID
+    }
+
     type Donation {
         _id: ID
         donationDate: String
@@ -17,6 +23,13 @@ const typeDefs = gql`
         benefactor: String
         amount: Float
         message: String
+        donorName: String
+    }
+
+    type Order {
+        _id: ID
+        purchaseDate: String
+        donations: [Donation]
     }
 
     type User {
@@ -25,6 +38,7 @@ const typeDefs = gql`
         lastName: String
         email: String
         donations: [Donation]
+        orders: [Order]
     }
 
     type Auth {
@@ -34,12 +48,24 @@ const typeDefs = gql`
 
     type Query {
         me: User
+        getBenefactors: [Benefactor]
+        getFilteredBenefactors(searchTerm: String!): [Benefactor]
+        getBenefactor(benefactorName: String!): Benefactor
+        getDonations: [Donation]
+        getFilteredDonations(searchTerm: String!): [Donation]
+        getDonation(_id: ID!): Donation
+        getOrders: [Order]
+        checkout(products: [ID]!): Checkout
+        order(_id: ID!): Order
     }
     
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, email: String!, password: String!):  Auth
-        
+        addDonation(benefactor: String!, amount: Float!, message: String donorName: String): Donation
+        addBenefactor(benefactorName: String!, about: String!, age: Int!): Benefactor
+        addOrder(donations: [ID]!): Order
+        deleteDonation(_id: ID!): User
     }
 `;
 

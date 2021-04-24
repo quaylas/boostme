@@ -36,9 +36,6 @@ return(
                     <Link to='/login'>
                     Log In
                     </Link>
-                    <Link to='/signup'>
-                    Sign Up
-                    </Link>
 
                 </li>
 			</ul>

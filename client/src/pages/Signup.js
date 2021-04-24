@@ -47,7 +47,7 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="email">Last Name:</label>
           <input
             placeholder="Last"
             name="lastName"

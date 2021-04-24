@@ -28,9 +28,9 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="container my-5">
       <Link to="/signup">
-        ← Go to Signup
+        ← Don't have an account? Go to Signup
       </Link>
 
       <h2>Login</h2>

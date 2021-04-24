@@ -1515,11 +1515,13 @@ input, select, textarea {
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
+	form input[type="firstName"],
+	form input[type="lastName"],
 	form select,
 	form textarea {
 		-webkit-appearance: none;
 		display: block;
-		width: 100%;
+		width: 50%;
 		border-radius: 8px;
 		border: solid 1px #eee;
 	}
@@ -1527,6 +1529,8 @@ input, select, textarea {
 		form input[type="text"]:focus,
 		form input[type="email"]:focus,
 		form input[type="password"]:focus,
+		form input[type="firstName"]:focus,
+		form input[type="lastName"]:focus,
 		form select:focus,
 		form textarea:focus {
 			border-color: #0090c5;
@@ -1534,6 +1538,8 @@ input, select, textarea {
 
 	form input[type="text"],
 	form input[type="email"],
+	form input[type="firstName"],
+	form input[type="lastName"],
 	form input[type="password"] {
 		line-height: 3em;
 		padding: 0 1em;
@@ -1947,6 +1953,7 @@ input, select, textarea {
 
 	#header {
 		position: relative;
+		margin: 15px;
 	}
 
 /* Logo */
@@ -1962,7 +1969,7 @@ input, select, textarea {
 			font-family: 'Oleo Script', serif;
 			font-weight: 400;
 			padding: 0.25em 0.2em 0.25em 0.2em;
-			font-size: 3.25em;
+			font-size: 3.00em;
 			letter-spacing: 0.05em;
 			display: inline-block;
 			vertical-align: middle;

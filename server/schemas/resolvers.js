@@ -164,8 +164,8 @@ const resolvers = {
 
         addDonation: async (parent, args, context) => {
             if(context.user) {
-            const donation = await Donation.create({...args, donorEmail: context.user.email});
-
+            const donation = await Donation.create({...args, donorEmail: context.user.email,
+                donorName: context.user.firstName + " " + context.user.lastName});
                 await User.findByIdAndUpdate(
                     { _id: context.user._id},
                     { $push: {donations: donation._id} },

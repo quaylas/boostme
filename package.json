@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/quaylas/boostme/issues"
   },
-  "homepage": "https://github.com/quaylas/boostme#readme"
+  "homepage": "https://github.com/quaylas/boostme#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reactstrap": "^8.9.0"
+  }
 }

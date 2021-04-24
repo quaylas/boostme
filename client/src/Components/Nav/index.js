@@ -1,15 +1,10 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
 import {
-    Navbar,
-    Nav,
-    NavItem,
-    NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText
   } from 'reactstrap';
 
 
@@ -17,33 +12,25 @@ import {
 
 return(
         <div>
-          <Navbar color="light" light expand="md">
-              <Nav className="mr-auto" navbar>
-                <NavItem>
-                  <NavLink href="/components/">Home</NavLink>
-                </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    About Us
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>
-                      Nick
-                    </DropdownItem>
-                    <DropdownItem>
-                      Quayla
-                    </DropdownItem>
-                    <DropdownItem>
-                      Malachi
-                    </DropdownItem>
-                    <DropdownItem>
-                      Janele
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </Nav>
-              <NavbarText>Login/Signup</NavbarText>
-          </Navbar>
+          <nav id="nav">
+								<ul>
+									<li class="current"><a href="">Home</a></li>
+									<li>
+									<UncontrolledDropdown color='white'>
+      <DropdownToggle>
+        Dropdown
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
+        <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
+		<DropdownItem a href='http://www.github.com/tonganknight'>Malachi</DropdownItem>
+        <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
+      </DropdownMenu>
+    </UncontrolledDropdown>
+	</li>
+									<li><a href="doorway.html">Log In / Sign Up</a></li>
+								</ul>
+							</nav>
         </div>
       );
     }

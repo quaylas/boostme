@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+ 
 function Hero() {
     return (
 <div id="banner-wrapper">
@@ -11,8 +12,11 @@ function Hero() {
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<li><a href="#" class="button large icon solid fa-arrow-circle-right">Donate Now!</a></li>
-									<li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
+									<li>
+										<Link to='/signup' class="button large icon solid fa-arrow-circle-right">Donate Now!
+										</Link>
+										</li>
+									<li><a href="https://extension.usu.edu/weber/4h/" class="button alt large icon solid fa-question-circle">More info</a></li>
 								</ul>
 							</div>
 						</div>

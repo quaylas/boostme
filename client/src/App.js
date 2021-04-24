@@ -1,31 +1,41 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 import './App.css';
-import Header from '../src/Components/Nav';
-import Carousel from '../src/Components/Carousel';
-import Hero from './Components/Hero';
+import Header from '../src/Components/Header';
+//import Carousel from '../src/Components/Carousel';
+//import Hero from './Components/Hero';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
 
 function App() {
   return (
-    <div>
-
-     {/*  <div>
-        <Hero />
-      </div> */}
-
-<div class="container2"> 
-<Carousel />
-
-</div>
-
-      <div>
-      <Hero />
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <Header />
+         
+          <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          </Switch>
       </div>
-
-      <div>
-      <Header />
-      </div>
-
-
-    </div>
+    </Router>
+    </ApolloProvider>
     
   );
 }

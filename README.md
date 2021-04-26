@@ -38,5 +38,5 @@ For more information on the Licence on this Project visit undefined
 ## Questions 
 
 If you have any questions about this project, or if you run into any issues please contact us at one of the following emails  malachialusa@gmail.com, quayla@cxadvisors.com, nick.ovalles@gmail.com
-or you can also find me on GitHub.com my username is tonganknight  Please visit our  profiles  at https://github.com/quaylas https://github.com/jleatham78 https://github.com/nickovalles
+or you can also find us on GitHub.com my username is tonganknight  Please visit our  profiles  at https://github.com/quaylas https://github.com/jleatham78 https://github.com/nickovalles
 

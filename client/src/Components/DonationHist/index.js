@@ -7,6 +7,7 @@ function DonationHistory() {
     
     const { data } = useQuery(QUERY_USER);
     let user;
+    console.log(user);
 
     if (data) {
         user = data.user;
@@ -22,11 +23,9 @@ function DonationHistory() {
                 {user.donations.map(({ donationDate, benefactor, amount }, index) => (
                     <div key={index}>
                         <li>
-                            {
-                            user.donations.donationDate,
-                            user.donations.benefactor,
-                            user.donations.amount
-                            }
+                            {user.donations.donationDate}
+                            {user.donations.benefactor}
+                            {user.donations.amount}
                         </li>
 
                     </div>

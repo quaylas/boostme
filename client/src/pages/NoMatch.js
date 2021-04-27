@@ -1,6 +1,7 @@
 import React from "react";
 //import Header from "../Components/Header";
 import BenefactorList from '../Components/BenefactorList';
+import DonationHistory from '../Components/DonationHist';
 
 const NoMatch = () => {
   return (

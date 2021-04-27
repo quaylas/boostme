@@ -1,5 +1,4 @@
 import React from "react";
-import Modal from "../Components/Modal"
 //import Header from "../Components/Header";
 import BenefactorList from '../Components/BenefactorList';
 

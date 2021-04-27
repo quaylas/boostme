@@ -4,8 +4,7 @@ import Hero from '../Components/Hero';
 
 const Home = () => {
   return (
-
-<div>
+ <div>
     <div class="container2"> 
        <Hero />
         <Carousel />
@@ -15,7 +14,7 @@ const Home = () => {
      
   );
 };
-/*
- 
-    */
+
+
+    
 export default Home;

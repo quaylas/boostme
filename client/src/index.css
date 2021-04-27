@@ -2714,3 +2714,10 @@ input, select, textarea {
 			}
 
 	}
+
+/* Modal */
+/* Controls the length of the amount field. */
+.modaltextarea{
+	width: 15% !important;
+}
+

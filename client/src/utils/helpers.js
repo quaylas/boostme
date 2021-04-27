@@ -17,6 +17,7 @@ export function idbPromise(storeName, method, object) {
             const db = request.result;
 
             db.createObjectStore('donations', { keyPath: '_id' });
+            db.createObjectStore('benefactors', { keyPath: '_id' });
             db.createObjectStore('cart', { keyPath: '_id'});
     };
 

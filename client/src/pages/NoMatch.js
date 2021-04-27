@@ -1,5 +1,6 @@
 import React from "react";
 //import Header from "../Components/Header";
+import BenefactorList from '../Components/BenefactorList';
 
 const NoMatch = () => {
   return (
@@ -9,6 +10,7 @@ const NoMatch = () => {
           <span role="img" aria-label="Face With Rolling Eyes Emoji">
             🙄
           </span>
+          <BenefactorList />
         </h1>
     </div>
   );

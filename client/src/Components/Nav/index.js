@@ -27,7 +27,7 @@ return(
                     <DropdownMenu>
                     <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
                     <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
-                    <DropdownItem a href='http://www.github.com/tonganknight'>Malachi</DropdownItem>
+                    <DropdownItem a href='https://tonganknight.github.io/'>Malachi</DropdownItem>
                     <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
                     </DropdownMenu>
                     </UncontrolledDropdown>

@@ -4,13 +4,18 @@ import Hero from '../Components/Hero';
 
 const Home = () => {
   return (
-      <div>
+
+<div>
     <div class="container2"> 
        <Hero />
         <Carousel />
     </div>
     </div>
+
+     
   );
 };
-
+/*
+ 
+    */
 export default Home;

@@ -7,6 +7,14 @@ function modalComponent (){
 
     const data = useQuery(QUERY_BENEFACTORS);
 
+    const benefactors = data.benefactorName
+
+    /*function ifbenefactors(){  This will check and make sure benefactors are returning. This is the logic set up if we don't have any benefactors in our DB yet. 
+        if(!benefactors){
+            return state 
+        }
+    } */
+
     useEffect(() => {
       
     })
@@ -24,14 +32,12 @@ function modalComponent (){
 
     <Form.Group controlId="exampleForm.ControlSelect2">
     <Form.Label>Please Select a benefactor</Form.Label>
-    <Form.Control as="select">
-    
-     
-    </Form.Control>
-    </Form.Group>
+    <Form.Control as="select">{map(data => (
+     <option oncclick={handleShow} >{data.benefactorName}</option>   
 
-<Modal.Dialog>
-    <Modal.Header closeButton>
+    ))}
+    
+     <Modal.Header>
     <Modal.Title>Donations</Modal.Title>
     </Modal.Header>
     <Form.Control className="benefactorNameModal" type="text" placeholder="Benefactor's Name Here" readOnly />
@@ -44,7 +50,11 @@ function modalComponent (){
     <Button variant="secondary" onClick={handleClose}>Close</Button>
     <Button variant="primary">Submit Donation</Button>
     </Modal.Footer>
-</Modal.Dialog>
+
+ </Form.Control>
+    </Form.Group>
+    
+
 
 </div>
 

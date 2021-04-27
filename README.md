@@ -33,7 +33,7 @@ Malachi Alusa, Quayla Skevington, Janele Leatham, Nick Ovalles
 
 ## License:
 
-For more information on the Licence on this Project visit undefined
+For more information on the Licence on this Project visit https://opensource.org/licenses/ISC
 
 ## Questions 
 

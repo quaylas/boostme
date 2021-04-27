@@ -23,7 +23,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_DONATION = gql`
-  mutation addDonation($benefactor: String!, amount: Float!, message: String){
+  mutation addDonation($benefactor: String!, $amount: Float!, $message: String){
     addDonation(benefactor: $benefactor, amount: $amount, message: $message){
       _id
       donationDate

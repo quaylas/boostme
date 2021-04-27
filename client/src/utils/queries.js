@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-
+​
 export const QUERY_BENEFACTOR = gql`
     query getBenefactor($benefactorName: String!) {
         getBenefactor(benefactorName: $benefactorName){
@@ -18,7 +18,7 @@ export const QUERY_BENEFACTOR = gql`
         }
     }
 `;
-
+​
 export const QUERY_BENEFACTORS = gql`
     query getFilteredBenefactors($searchTerm: String!) {
         getFilteredBenefactors(searchTerm: $searchTerm){
@@ -37,7 +37,7 @@ export const QUERY_BENEFACTORS = gql`
         }
     }
 `;
-
+​
 export const QUERY_ALL_BENEFACTORS = gql`
 query getBenefactors {
     getBenefactors {
@@ -56,7 +56,7 @@ query getBenefactors {
     }
 }
 `;
-
+​
 export const QUERY_ALL_DONATIONS = gql`
     {
             _id
@@ -68,7 +68,7 @@ export const QUERY_ALL_DONATIONS = gql`
             message
     }
 `;
-
+​
 export const QUERY_DONATIONS = gql`
     query getFilteredDonations($searchTerm: String!) {
         getFilteredDonations(searchTerm: $searchTerm) {
@@ -82,7 +82,7 @@ export const QUERY_DONATIONS = gql`
         }
     }
 `;
-
+​
 export const QUERY_DONATION = gql`
     query getDonation($_id: ID!) {
         getDonations(_id: $_id){
@@ -98,7 +98,7 @@ export const QUERY_DONATION = gql`
         }
     }
 `;
-
+​
 export const QUERY_ME = gql`
     {
         me {
@@ -120,7 +120,7 @@ export const QUERY_ME = gql`
         }
     }
 `;
-
+​
 export const QUERY_USER = gql`
     { 
         firstName
@@ -138,7 +138,7 @@ export const QUERY_USER = gql`
         }
     }    
 `;
-
+​
 export const QUERY_CHECKOUT = gql`
     query getCheckout($donations: [ID]!){
         checkout(donations: $donations){

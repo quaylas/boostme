@@ -5,6 +5,7 @@ import BenefactorList from '../Components/BenefactorList';
 const NoMatch = () => {
   return (
     <div>
+        <DonationHistory />
         <h1>404 Page Not Found</h1>
         <h1>
           <span role="img" aria-label="Face With Rolling Eyes Emoji">

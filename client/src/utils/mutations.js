@@ -37,7 +37,7 @@ export const ADD_DONATION = gql`
 `;
 
 export const ADD_BENEFACTOR = gql`
-  mutation addBenefactor($benefactorName: String!, about: String!, age: Int!){
+  mutation addBenefactor($benefactorName: String!, $about: String!, $age: Int!){
     addBenefactor(benefactorName: $benefactorName, about: $about, age: $age){
       _id
       benefactorName

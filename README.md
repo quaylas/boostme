@@ -3,7 +3,7 @@
 
 ## Description
 
-This is a Donation site for the 4H and communit
+This is a Donation site for the 4H and community
 
 ## Table of Contents
 * [Installation](#installation)

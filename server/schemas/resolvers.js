@@ -166,17 +166,6 @@ const resolvers = {
             if(context.user) {
             const donation = await Donation.create({...args, donorEmail: context.user.email,
                 donorName: context.user.firstName + " " + context.user.lastName});
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id},
-                    { $push: {donations: donation._id} },
-                    {new: true }
-                );
-
-                await Benefactor.findOneAndUpdate(
-                    { benefactorName: args.benefactor},
-                    { $push: {donations: donation._id} },
-                    {new: true }
-                );
 
             return donation;
             }
@@ -186,13 +175,26 @@ const resolvers = {
 
         addOrder: async (parent, args, context) => {
             if (context.user){
-                const order =  await Order.create({...args})
-                .populate("donations");
+                const order =  await Order.create({...args});
 
-                await User.findByIdAndUpdate(
-                    context.user._id, { $push: {}} 
-                );
+                const fullOrder = await Order.findOne({_id:order._id}).populate("donations");
+   
+                for(let i =0; i < fullOrder.donations.length; i++){
+
+                    await User.findByIdAndUpdate(
+                        { _id: context.user._id},
+                        { $push: {donations: fullOrder.donations[i]._id} },
+                        {new: true }
                 
+                    );
+    
+                    await Benefactor.findOneAndUpdate(
+                        { benefactorName: fullOrder.donations[i].benefactor},
+                        { $push: {donations: fullOrder.donations[i]._id} },
+                        {new: true }
+                    );
+                 } 
+
                 return order; 
             }
 

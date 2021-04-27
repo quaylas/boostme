@@ -39,7 +39,8 @@ export const QUERY_BENEFACTORS = gql`
 `;
 
 export const QUERY_ALL_BENEFACTORS = gql`
-    {
+query getBenefactors {
+    getBenefactors {
         _id
         benefactorName
         about
@@ -53,6 +54,7 @@ export const QUERY_ALL_BENEFACTORS = gql`
             message
         }
     }
+}
 `;
 
 export const QUERY_ALL_DONATIONS = gql`
@@ -83,7 +85,7 @@ export const QUERY_DONATIONS = gql`
 
 export const QUERY_DONATION = gql`
     query getDonation($_id: ID!) {
-        getDonations(-id: $_id){
+        getDonations(_id: $_id){
             donations {
                 _id
                 donationDate
@@ -120,7 +122,7 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_USER = gql`
-    user {
+    { 
         firstName
         lastName
         orders {
@@ -134,7 +136,7 @@ export const QUERY_USER = gql`
                 message
             }
         }
-    }
+    }    
 `;
 
 export const QUERY_CHECKOUT = gql`

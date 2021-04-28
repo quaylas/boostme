@@ -45,7 +45,7 @@ const Cart = () => {
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach(item => {
-            sum += item.price;
+            sum += item.amount;
         });
         return sum.toFixed();
     };

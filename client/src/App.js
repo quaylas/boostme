@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../src/Components/Header';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import NoMatch from "./pages/NoMatch";
 import { StoreProvider } from './utils/GlobalState';
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route component={NoMatch} />
             </Switch>
         </div>

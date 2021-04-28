@@ -3,29 +3,40 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
 import BenefactorList from '../Components/BenefactorList';
 import BenefactorListItem from '../Components/BenefactorListItem';
+import DonationHistory from '../Components/DonationHist';
 import Nav from '../Components/Nav';
 import Header from '../Components/Header';
-/* import { LOGIN } from "../utils/mutations"
-import Auth from "../utils/auth"; */
+import { LOGIN } from "../utils/mutations"
+import Auth from "../utils/auth";
 
 const Dashboard = () => {
     return (
 <div>
     <header>
         <Header />
+        
     </header>
-        <div class="container2">
-            <BenefactorListItem />
-        </div>
+    <ul className="admin-menu">
+             
+              <h3 style={{color: "aliceblue"}}>My Donation History</h3>
+              <li className="menu-heading">
+              Sample Text
+            </li>
+        
+          </ul>
 
-        <div class="container2">
+       {/*  <div className="container2">
+            <BenefactorListItem />
+        </div> */}
+
+        <div className="container2">
             <BenefactorList />
         </div>
 
 </div>
 
 
-        /* <div>
+ /*        <div>
         <header class="page-header">
         <nav>
             <div id="logo">
@@ -36,6 +47,8 @@ const Dashboard = () => {
               <use xlink:href="#down"></use>
             </svg>
           </button>
+
+
           <ul class="admin-menu">
              <li class="menu-heading">
               <h3 style="color: aliceblue;">Janele Leathman</h3>
@@ -70,6 +83,8 @@ const Dashboard = () => {
               </button>
             </li>
           </ul>
+
+
         </nav>
       </header>
 
@@ -122,7 +137,7 @@ const Dashboard = () => {
           <article></article>
         </section>
       </section>
-      </div> */
+      </div> */ 
 
 
        

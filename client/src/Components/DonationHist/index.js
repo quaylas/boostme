@@ -5,9 +5,6 @@ import { UPDATE_DONATIONS } from '../../utils/actions';
 import { useStoreContext } from '../../utils/GlobalState';
 import { idbPromise } from '../../utils/helpers';
 
-
-
-
 function DonationHistory() {
 
     const [state, dispatch] = useStoreContext();
@@ -36,21 +33,23 @@ function DonationHistory() {
     
 
     return (
-        <div>
+        <div id="my-donations">
             {state.donations.length ? (
-            <ul>
+            <ul className="admin-menu">
+            <h1>My Donation History</h1> 
                 {data.me.donations.map((donation) => (
-                    <li key={donation._id}>
-                            {donation.donationDate}
-                            {donation.benefactor}
-                            {donation.amount}
-
+                    <li className="menu-heading" key={donation._id}>
+        
+                        {donation.donationDate}
+                        {donation.benefactor}
+                        {donation.amount}
+                        
                     </li>
                 ))}
             </ul>
             ) : (<div>No donations yet!</div>)}
             { loading ? <div>Please give us a second to load ...</div> : null }
-            </div>
+        </div>
 
     );
 };

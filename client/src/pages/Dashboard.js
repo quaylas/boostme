@@ -20,7 +20,7 @@ const Dashboard = () => {
 
          <div className="container2">
             <BenefactorListItem />
-        </div>
+        </div> 
 
       </div>
 
@@ -29,7 +29,7 @@ const Dashboard = () => {
   
 
 
-        /* <div>
+ /*        <div>
         <header class="page-header">
         
           <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
@@ -37,6 +37,8 @@ const Dashboard = () => {
               <use xlink:href="#down"></use>
             </svg>
           </button>
+
+
           <ul class="admin-menu">
              <li class="menu-heading">
               <h3 style="color: aliceblue;">Janele Leathman</h3>
@@ -48,6 +50,8 @@ const Dashboard = () => {
               </button>
             </li>
           </ul>
+
+
         </nav>
       </header>
 
@@ -89,7 +93,7 @@ const Dashboard = () => {
         
         </section>
       </section>
-      </div> */
+      </div> */ 
 
 
        

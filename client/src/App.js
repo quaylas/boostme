@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../src/Components/Header';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import NoMatch from "./pages/NoMatch";
 import Dashboard from './pages/Dashboard';

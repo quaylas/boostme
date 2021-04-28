@@ -1,15 +1,29 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
+import BenefactorList from '../Components/BenefactorList';
+import BenefactorListItem from '../Components/BenefactorListItem';
+import Nav from '../Components/Nav';
+import Header from '../Components/Header';
 /* import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth"; */
 
 const Dashboard = () => {
     return (
-
-        <div>
-
+<div>
+    <header>
+        <Header />
+    </header>
+        <div class="container2">
+            <BenefactorListItem />
         </div>
+
+        <div class="container2">
+            <BenefactorList />
+        </div>
+
+</div>
+
 
         /* <div>
         <header class="page-header">

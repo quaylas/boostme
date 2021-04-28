@@ -1,45 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_USER } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
+import { UPDATE_DONATIONS } from '../../utils/actions';
+import { useStoreContext } from '../../utils/GlobalState';
+import { idbPromise } from '../../utils/helpers';
+
+
 
 
 function DonationHistory() {
-    
-    const { data } = useQuery(QUERY_USER);
-    let user;
-    console.log(user);
 
-    if (data) {
-        user = data.user;
-    }
+    const [state, dispatch] = useStoreContext();
+    const { loading, data } = useQuery(QUERY_ME);
+
+    useEffect(() => {
+        if(data) {
+            console.log(data);
+            dispatch({
+                type: UPDATE_DONATIONS,
+                donations: data.me.donations
+            });
     
+            data.me.donations.forEach((donation) => {
+                idbPromise('donations', 'put', donation);
+            });
+        } else if (!loading) {
+            idbPromise('donations', 'get').then((donations) => {
+                dispatch({
+                    type: UPDATE_DONATIONS,
+                    donations: donations
+                });
+            });
+        }
+    }, [data, loading, dispatch]);
+    
+
     return (
-        <>
         <div>
-            {user ? (
-                <>
-                <h2>Donation History</h2>
-        
-                {user.donations.map(({ donationDate, benefactor, amount }, index) => (
-                    <div key={index}>
-                        <li>
-                            {user.donations.donationDate}
-                            {user.donations.benefactor}
-                            {user.donations.amount}
-                        </li>
+            {state.donations.length ? (
+            <ul>
+                {data.me.donations.map((donation) => (
+                    <li key={donation._id}>
+                            {donation.donationDate}
+                            {donation.benefactor}
+                            {donation.amount}
 
-                    </div>
-
-                )
-
-            )}
-            </>
-        ) : null}
-
-        </div>
-        </>
+                    </li>
+                ))}
+            </ul>
+            ) : (<div>No donations yet!</div>)}
+            { loading ? <div>Please give us a second to load ...</div> : null }
+            </div>
 
     );
-}
+};
 
 export default DonationHistory;

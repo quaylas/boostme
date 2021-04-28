@@ -106,16 +106,17 @@ export const QUERY_ME = gql`
             firstName
             lastName
             email
+            donations {
+                _id
+                donationDate
+                benefactor
+                amount
+                message
+            }
             orders {
                 _id
                 purchaseDate
-                donations {
-                    _id
-                    donationDate
-                    benefactor
-                    amount
-                    message
-                }
+                
             }
         }
     }

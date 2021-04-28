@@ -1,46 +1,66 @@
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 import { idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, InputGroupText, Input, } from 'reactstrap';
 import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useLazyQuery, useMutation } from '@apollo/react-hooks';
+import {ADD_DONATION} from "../../utils/mutations"
 
 
 
 
-function BenefactorListItem(item) {
-    // const [state, dispatch] = useStoreContext();
+
+function BenefactorListItem(benefactor) {
+
+    const [addDonation, {error}] = useMutation(ADD_DONATION)
+
     const [modal, setModal] =useState(false);
 
     const toggle = () => setModal(!modal); 
 
-    const { _id, name, age, about } = item;
+    const { _id, name, age, about } = benefactor;
+    
+    const [formState, setFormState] = useState({ benefactor: name, amount: 0});
 
     /* add to cart */
 
-    const {state, dispatch} = useStoreContext();
+    const [state, dispatch] = useStoreContext();
 
-    const {cart} = state
+    const handleChange =event => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: parseFloat(value)
+        });
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault()
+        try {
+            const mutationResponse = await addDonation({
+                variables: {
+                    benefactor: formState.benefactor, amount: formState.amount
+                }
+            });
+            const donation = mutationResponse.data.addDonation
+            addToCart(donation);
+        } catch(e){
+            console.log(e);
+        }
+    } 
     
-    const addToCart = () => {
-        const donationincart = cart.find((donation) => donationincart._id === _id)
-        if (!donationincart) {
+    const addToCart = (donation) => {
+            console.log(donation);
             dispatch({
                 type: ADD_TO_CART,
-                _id: _id,
-                purchaseQuantity: parseInt(donationincart.purchaseQuantity) + 1
+                _id: donation._id
             });
             idbPromise('cart', 'put', {
-              ...donationincart,
-              purchaseQuantity: parseInt(donationincart.purchaseQuantity) + 1
+              ...donation,
+  
             });
-          } else {
-            dispatch({
-              type: ADD_TO_CART,
-              product: { ...item, purchaseQuantity: 1 }
-            });
-            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
-          }
+
         }
  
     return (
@@ -63,11 +83,11 @@ function BenefactorListItem(item) {
                 <div>{name} would welcome your support!</div>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">$</InputGroupAddon>
-                    <Input className="modaltextarea donationamount" placeholder="Amount" min={1} max={10000000} type="number" step="1" /> 
+                    <Input name="amount" onChange={handleChange} className="modaltextarea donationamount" placeholder="Amount" min={1} max={10000000} type="number" step="1" /> 
                 </InputGroup>       
             </ModalBody>
             <ModalFooter>
-            <Button>Submit Donation</Button>
+            <Button onClick={handleFormSubmit}>Submit Donation</Button>
             <Button color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>

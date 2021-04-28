@@ -34,12 +34,12 @@ export const reducer = (state, action) => {
         case ADD_MULTIPLE_TO_CART:
             return {
                 ...state,
-                cart: [...state.cart, action.donations]
+                cart: [...state.cart, ...action.donations]
             };
 
         case REMOVE_FROM_CART: 
             let newState = state.cart.filter(donation => {
-                    return donation._id !== action.id;
+                    return donation._id !== action._id;
                 });
 
             return {

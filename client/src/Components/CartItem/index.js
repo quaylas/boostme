@@ -8,6 +8,7 @@ import { idbPromise } from '../../utils/helpers';
 const CartItem = ({ item }) => {
     const [, dispatch] = useStoreContext();
 
+    console.log(item);
     const removeFromCart = item => {
         dispatch({
             type: REMOVE_FROM_CART,
@@ -18,11 +19,8 @@ const CartItem = ({ item }) => {
 
     return (
         <div>
-            <div>{item.name}, {item.price}</div>
-            <div>
-                <span role="img" aria-label="trash" onClick={() => removeFromCart(item)}>
-                        🗑️
-                </span>
+            <div>{item.benefactor}, {item.amount}
+                <span role="img" aria-label="trash" onClick={() => removeFromCart(item)}>🗑️</span>
             </div>
         </div>
     );

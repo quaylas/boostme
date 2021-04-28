@@ -6,35 +6,21 @@ import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
 import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import {ADD_DONATION} from "../../utils/mutations"
 
-
-
-
-
 function BenefactorListItem(benefactor) {
-
     const [addDonation, {error}] = useMutation(ADD_DONATION)
-
     const [modal, setModal] =useState(false);
-
     const toggle = () => setModal(!modal); 
-
     const { _id, name, age, about } = benefactor;
-    
     const [formState, setFormState] = useState({ benefactor: name, amount: 0});
-
     /* add to cart */
-
     const [state, dispatch] = useStoreContext();
-
     const handleChange =event => {
         const { name, value } = event.target;
-
         setFormState({
             ...formState,
             [name]: parseFloat(value)
         });
     };
-
     const handleFormSubmit = async (event) => {
         event.preventDefault()
         try {
@@ -49,20 +35,15 @@ function BenefactorListItem(benefactor) {
             console.log(e);
         }
     } 
-    
     const addToCart = (donation) => {
-            console.log(donation);
             dispatch({
                 type: ADD_TO_CART,
-                _id: donation._id
+                donation: donation
             });
             idbPromise('cart', 'put', {
               ...donation,
-  
             });
-
         }
- 
     return (
 
         <div>

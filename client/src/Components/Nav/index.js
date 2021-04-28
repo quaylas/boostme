@@ -1,4 +1,5 @@
 import React from 'react';
+import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
 import {
     UncontrolledDropdown,
@@ -6,82 +7,79 @@ import {
     DropdownMenu,
     DropdownItem,
   } from 'reactstrap';
-import Auth from '../../utils/auth'
 
 
     function Navigator() {
       if (Auth.loggedIn()) {
         return(
-<div>
-            <nav id="nav">
-        <ul>
-          <li>
-                      <Link to='/'>
-                          Home
-                      </Link>
+            <div>
+                <nav id="nav">
+                    <ul>
+                        <li>
+                        <Link to='/'>
+                            Home
+                        </Link>
+                        </li>
+                    <li>
+                        <UncontrolledDropdown color='white'>
+                        <DropdownToggle caret>
+                            About Us
+                        </DropdownToggle>
+                        <DropdownMenu>
+                        <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
+                        <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
+                        <DropdownItem a href='https://tonganknight.github.io/'>Malachi</DropdownItem>
+                        <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
+                        </DropdownMenu>
+                        </UncontrolledDropdown>
                       </li>
-              <li>
-            <UncontrolledDropdown color='white'>
-                      <DropdownToggle caret>
-                          About Us
-                      </DropdownToggle>
-                      <DropdownMenu>
-                      <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
-                      <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
-                      <DropdownItem a href='https://tonganknight.github.io/'>Malachi</DropdownItem>
-                      <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
-                      </DropdownMenu>
-                      </UncontrolledDropdown>
-                      </li>
-          <li>
+                    <li>
                       <Link to='/home' onClick={() => Auth.logout()}>
                       Log Out
                       </Link>
   
-                  </li>
-        </ul>
-          </nav>
-          </div>
-        );
+                    </li>
+                    </ul>
+                </nav>
+                </div>
+                );
       } else {
         return (
           <div>
             <nav id="nav">
-        <ul>
-          <li>
+                <ul>
+                    <li>
                       <Link to='/'>
                           Home
                       </Link>
                       </li>
-              <li>
-            <UncontrolledDropdown color='white'>
-                      <DropdownToggle caret>
-                          About Us
-                      </DropdownToggle>
-                      <DropdownMenu>
-                      <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
-                      <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
-                      <DropdownItem a href='https://tonganknight.github.io/'>Malachi</DropdownItem>
-                      <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
-                      </DropdownMenu>
-                      </UncontrolledDropdown>
+                    <li>
+                        <UncontrolledDropdown color='white'>
+                        <DropdownToggle caret>
+                            About Us
+                        </DropdownToggle>
+                        <DropdownMenu>
+                        <DropdownItem a href='http://www.github.com/quaylas'>Quayla</DropdownItem>
+                        <DropdownItem a href='http://www.github.com/jleatham78'>Janele</DropdownItem>
+                        <DropdownItem a href='https://tonganknight.github.io/'>Malachi</DropdownItem>
+                        <DropdownItem a href='http://www.github.com/nickovalles'>Nick</DropdownItem>
+                        </DropdownMenu>
+                        </UncontrolledDropdown>
                       </li>
-          <li>
+                    <li>
                       <Link to='/login'>
                       Log In
                       </Link>
   
                   </li>
-        </ul>
-          </nav>
+                </ul>
+            </nav>
           </div>
         )
       }
     }
     
     export default Navigator;
-
-
 
 
 

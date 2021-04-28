@@ -33,16 +33,17 @@ function DonationHistory() {
     
 
     return (
-        <div id="my-donations">
+        <div className='containersidebar'>
             {state.donations.length ? (
             <ul className="admin-menu">
-            <h1>My Donation History</h1> 
+            <h3 style={{color: 'white'}}>My Donation History</h3><br></br>
                 {data.me.donations.map((donation) => (
                     <li className="menu-heading" key={donation._id}>
         
-                        {donation.donationDate}
-                        {donation.benefactor}
-                        {donation.amount}
+                        Date: {donation.donationDate} {<br></br>}
+                        4H Member: {donation.benefactor} {<br></br>}
+                        Amount: ${donation.amount} {<br></br>}
+                        {<br></br>}
                         
                     </li>
                 ))}

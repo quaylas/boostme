@@ -3,34 +3,35 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
 import BenefactorList from '../Components/BenefactorList';
 import BenefactorListItem from '../Components/BenefactorListItem';
-import Nav from '../Components/Nav';
-import Header from '../Components/Header';
-/* import { LOGIN } from "../utils/mutations"
-import Auth from "../utils/auth"; */
+import DonationHistory from '../Components/DonationHist';
+import { LOGIN } from "../utils/mutations"
+import Auth from "../utils/auth";
 
 const Dashboard = () => {
     return (
-<div>
-    <header>
-        <Header />
-    </header>
-        <div class="container2">
+    <div style={{display: 'flex'}}>
+        <div >
+          <DonationHistory />
+          </div>
+          
+          <div className="container2">
+          <BenefactorList />
+          </div>
+
+         <div className="container2">
             <BenefactorListItem />
         </div>
 
-        <div class="container2">
-            <BenefactorList />
-        </div>
+      </div>
 
-</div>
+
+       
+  
 
 
         /* <div>
         <header class="page-header">
-        <nav>
-            <div id="logo">
-                <h1><a href="index.html">BoostMe</a></h1>
-            </div>
+        
           <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
             <svg width="20" height="20" aria-hidden="true">
               <use xlink:href="#down"></use>
@@ -39,30 +40,7 @@ const Dashboard = () => {
           <ul class="admin-menu">
              <li class="menu-heading">
               <h3 style="color: aliceblue;">Janele Leathman</h3>
-            <li>
-              <a href="#">
-                <svg>
-                  <use xlink:href="#pages"></use>
-                </svg>
-                <span>My Donations</span>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <svg>
-                  <use xlink:href="#users"></use>
-                </svg>
-                <span>Benefactors</span>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <svg>
-                  <use xlink:href="#comments"></use>
-                </svg>
-                <span>Account</span>
-              </a>
-            </li>
+         
             <br />
                          </li>
               <button class="button" aria-expanded="#" aria-label="#">
@@ -108,18 +86,7 @@ const Dashboard = () => {
                 <input type="submit" value="Donate Now">
             </form>
           </article>
-          
-          <article id="my-donations">
-            <h1 style="font-size: 230%; padding-left: 22%; padding-top: 3%;">My Donation <br />History
-            </h1> 
-
-            <form>
-                <input type="submit" value="Donate Now">
-            </form>
-
-          </article>
-          <article></article>
-          <article></article>
+        
         </section>
       </section>
       </div> */

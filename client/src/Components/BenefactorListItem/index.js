@@ -1,21 +1,48 @@
 import React, {useState} from 'react';
-// import { idbPromise } from '../../utils/helpers';
-// import { useStoreContext } from '../../utils/GlobalState';
+import { idbPromise } from '../../utils/helpers';
+import { useStoreContext } from '../../utils/GlobalState';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, InputGroupText, Input, } from 'reactstrap';
+import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
+import { useLazyQuery } from '@apollo/react-hooks';
 
-// import { ADD_TO_CART } from '../../utils/actions';
 
 
 
 function BenefactorListItem(item) {
     // const [state, dispatch] = useStoreContext();
-
     const [modal, setModal] =useState(false);
 
     const toggle = () => setModal(!modal); 
 
     const { _id, name, age, about } = item;
 
+    /* add to cart */
+
+    const {state, dispatch} = useStoreContext();
+
+    const {cart} = state
+    
+    const addToCart = () => {
+        const donationincart = cart.find((donation) => donationincart._id === _id)
+        if (!donationincart) {
+            dispatch({
+                type: ADD_TO_CART,
+                _id: _id,
+                purchaseQuantity: parseInt(donationincart.purchaseQuantity) + 1
+            });
+            idbPromise('cart', 'put', {
+              ...donationincart,
+              purchaseQuantity: parseInt(donationincart.purchaseQuantity) + 1
+            });
+          } else {
+            dispatch({
+              type: ADD_TO_CART,
+              product: { ...item, purchaseQuantity: 1 }
+            });
+            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+          }
+        }
+ 
     return (
 
         <div>
@@ -36,8 +63,7 @@ function BenefactorListItem(item) {
                 <div>{name} would welcome your support!</div>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">$</InputGroupAddon>
-                    <Input className="modaltextarea" placeholder="Amount" min={1} max={10000000} type="number" step="1" />
-                    
+                    <Input className="modaltextarea donationamount" placeholder="Amount" min={1} max={10000000} type="number" step="1" /> 
                 </InputGroup>       
             </ModalBody>
             <ModalFooter>

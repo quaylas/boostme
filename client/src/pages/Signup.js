@@ -82,12 +82,13 @@ function Signup(props) {
         </div>
         {
           error ? <div>
-            <p className="error-text" >The provided credentials are incorrect</p>
+            {error.message.includes('duplicate key error') ? <p className='error-text'>That email address is already in our system!</p> : <p className="error-text" >The provided credentials are incorrect</p>}
+            
           </div> : null
         }
         <div className="flex-row flex-end">
           <button type="submit">
-         Submit
+            Submit
           </button>
         </div>
       </form>

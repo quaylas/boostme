@@ -19,6 +19,8 @@ const Cart = () => {
     useEffect(() => {
         async function getCart() {
             const cart = await idbPromise('cart', 'get');
+            console.log(cart.length);
+            console.log(state.cart);
             dispatch({
                 type: ADD_MULTIPLE_TO_CART,
                 donations: [...cart]
@@ -45,7 +47,8 @@ const Cart = () => {
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach(item => {
-            sum += item.price;
+            sum += item.amount;
+            console.log(typeof(item.amount));
         });
         return sum.toFixed();
     };

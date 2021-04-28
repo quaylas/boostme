@@ -41,7 +41,7 @@ function BenefactorListItem(benefactor) {
                 donation: donation
             });
             idbPromise('cart', 'put', {
-              ...donation,
+                ...donation,
             });
         }
     return (
@@ -71,11 +71,11 @@ function BenefactorListItem(benefactor) {
             <Button onClick={handleFormSubmit}>Submit Donation</Button>
             <Button color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
-      </Modal>
+        </Modal>
 
 
         </div>
     )
- } 
+} 
 
 export default BenefactorListItem;

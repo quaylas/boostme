@@ -35,8 +35,7 @@ function BenefactorList() {
         }
     }, [data, loading, dispatch]);
 
-    function filterBenefactors() {
-        console.log(state.benefactors);    
+    function filterBenefactors() { 
         return state.benefactors; //wrap in if statement based on searchTerm
             
 

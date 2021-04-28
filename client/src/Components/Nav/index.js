@@ -7,6 +7,7 @@ import {
     DropdownMenu,
     DropdownItem,
   } from 'reactstrap';
+import Auth from '../../utils/auth'
 
 
     function Navigator() {

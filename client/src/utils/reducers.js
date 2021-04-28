@@ -4,6 +4,7 @@ import {
     UPDATE_DONATIONS,
     UPDATE_BENEFACTORS,
     ADD_TO_CART,
+    ADD_MULTIPLE_TO_CART,
     REMOVE_FROM_CART,
     CLEAR_CART,
     TOGGLE_CART
@@ -28,6 +29,12 @@ export const reducer = (state, action) => {
                 ...state,
                 cartOpen: true,
                 cart: [...state.cart, action.donation]
+            };
+
+        case ADD_MULTIPLE_TO_CART:
+            return {
+                ...state,
+                cart: [...state.cart, action.donations]
             };
 
         case REMOVE_FROM_CART: 

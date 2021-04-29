@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import NoMatch from "./pages/NoMatch";
 import Dashboard from './pages/Dashboard';
+import Success from './pages/Success';
 import { StoreProvider } from './utils/GlobalState';
 
 const client = new ApolloClient({
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/success" component={Success} />
             <Route component={NoMatch} />
             </Switch>
         </div>

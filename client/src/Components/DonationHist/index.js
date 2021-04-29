@@ -44,9 +44,11 @@ function DonationHistory() {
                 {data.me.donations.map((donation) => (
                     <li className="menu-heading" key={donation._id}>
         
-                        Date: {donation.donationDate} {<br></br>}
-                        4H Member: {donation.benefactor} {<br></br>}
-                        Amount: ${donation.amount} {<br></br>}
+                        Donated: ${donation.amount} {<br></br>}
+                        To: {donation.benefactor} {<br></br>}
+                        {donation.donationDate} {<br></br>}
+                        
+                        
                         {<br></br>}
                         
                     </li>

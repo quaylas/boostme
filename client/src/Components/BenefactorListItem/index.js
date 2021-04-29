@@ -33,6 +33,7 @@ function BenefactorListItem(benefactor) {
             });
             const donation = mutationResponse.data.addDonation
             addToCart(donation);
+            toggle();
         } catch(e){
             console.log(e);
         }
@@ -52,9 +53,9 @@ function BenefactorListItem(benefactor) {
             <Card top width="100%">
                 <CardHeader>{name}</CardHeader>
                 <CardBody>
-                <CardTitle tag="h5">Age {age}</CardTitle>
+                <CardTitle>{age} years old</CardTitle>
                 <CardText>{about}</CardText>
-                <Button color="primary" onClick={toggle}>Enter donation</Button>
+                <Button className='donationButtons' onClick={toggle}>Enter donation</Button>
                 </CardBody>
             </Card>
                 

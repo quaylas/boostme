@@ -20,6 +20,26 @@ carousel {
 	min-width: 500px !important;
 }
 
+.benefactorListOuter {
+	margin-left: 45%;
+}
+
+.menu-heading {
+	color: white;
+	list-style: none;
+}
+
+.donationButtons {
+	background-color: #0090C5 !important; 
+}
+
+.card-header {
+	color: #0090C5 !important;
+	font-size: 1.5em;
+	font-weight: bold;
+
+}
+
 
 /*                      */
 
@@ -2145,7 +2165,7 @@ input, select, textarea {
 		}
 
 		#banner p {
-			font-size: 2.75em;
+			font-size: 1.5em;
 			line-height: 1.35em;
 			margin: 0;
 		}
@@ -2169,7 +2189,7 @@ input, select, textarea {
 		#banner ul {
 			list-style: none;
 			padding-left: 0;
-			margin: 0 0 0 2em;
+			margin: 1em 1em 0 2em;
 		}
 
 			#banner ul li {

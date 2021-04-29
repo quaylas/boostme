@@ -1,8 +1,9 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const { User, Donation, Benefactor, Order } = require('../models');
+require('dotenv').config('../.env');
 
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const resolvers = {
     Query: {

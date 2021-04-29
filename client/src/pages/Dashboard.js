@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import BenefactorList from '../Components/BenefactorList';
 import BenefactorListItem from '../Components/BenefactorListItem';
 import DonationHistory from '../Components/DonationHist';
+import Cart from '../Components/Cart';
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 
 const Dashboard = () => {
     return (
     <div style={{display: 'flex'}}>
+        <Cart/>
         <div >
           <DonationHistory />
           </div>

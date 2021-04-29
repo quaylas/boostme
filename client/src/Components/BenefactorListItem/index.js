@@ -50,16 +50,16 @@ function BenefactorListItem(benefactor) {
 
         <div className='benefactor-list-item' style={{display: 'flex', font: 'inherit'}} itemID={_id}>
             <div>
-                <h4>  {name}</h4>
-                <ul> 
+                <h4>{name}</h4>
+                <ul className='ul2'> 
                 Age: {age}{<br></br>}
                 About: {about}
             </ul>
-        </div>
-            <div>
-            <Button color="primary" onClick={toggle}>Enter donation</Button>
             </div>
-        </div>
+                <div>
+                <Button color="primary" onClick={toggle}>Enter donation</Button>
+                </div>
+            </div>
 
         <Modal  isOpen={modal} toggle={toggle} >
             <ModalHeader >{name}</ModalHeader>

@@ -94,7 +94,8 @@ input, select, textarea {
 	border-color: gray;
 	border-width: 1px;
 	margin: 10px;
-	padding: 10px;
+	padding-left: 10px;
+	align-items: center;
 }
 
 /* Basic */
@@ -222,7 +223,7 @@ input, select, textarea {
 	}
 
   .container2 {
-		margin: 0 auto;
+		margin-left: 30px;
 		max-width: 90%;
     	height: 10px;
 	
@@ -1756,6 +1757,12 @@ input, select, textarea {
 	ul {
 		list-style: disc;
 		padding-left: 1em;
+	}
+
+	.ul2 {
+		list-style: disc;
+		padding-left: 1em;
+		margin-right: 50px;
 	}
 
 		ul li {

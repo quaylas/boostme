@@ -47,7 +47,7 @@ function BenefactorList() {
         <div className="benefactorListOuter">
                 {state.benefactors.length ? (
                     <>
-                    <h3>Who would you like to donate to?</h3>
+                    <h4>Who would you like to donate to?</h4><br></br>
                     <div className="benefactorListInner">
                         {filterBenefactors().map(benefactor => (
                             <BenefactorListItem

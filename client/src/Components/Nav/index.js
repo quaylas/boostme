@@ -20,6 +20,11 @@ import {
                             Home
                         </Link>
                         </li>
+                        <li>
+                        <Link to='/dashboard'>
+                            My Dashboard
+                        </Link>
+                        </li>
                     <li>
                         <UncontrolledDropdown color='white'>
                         <DropdownToggle caret>

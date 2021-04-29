@@ -43,8 +43,11 @@ function BenefactorList() {
     }
 
     return (
+        
         <div className="benefactorListOuter">
                 {state.benefactors.length ? (
+                    <>
+                    <h4>Who would you like to donate to?</h4><br></br>
                     <div className="benefactorListInner">
                         {filterBenefactors().map(benefactor => (
                             <BenefactorListItem
@@ -56,9 +59,12 @@ function BenefactorList() {
                                 />
                         ))}
                     </div>
+                    </>
                 ) : (<div>No benefactors to list!</div>)}
                 { loading ? <div>Please give us a second to load ...</div> : null }
+                
         </div>
+    
     );
 };
 

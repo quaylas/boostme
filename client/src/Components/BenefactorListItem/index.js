@@ -5,6 +5,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGr
 import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
 import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import {ADD_DONATION} from "../../utils/mutations"
+import { Card, CardHeader, CardBody,
+    CardTitle, CardText } from 'reactstrap';
 
 function BenefactorListItem(benefactor) {
     const [addDonation, {error}] = useMutation(ADD_DONATION)
@@ -31,6 +33,7 @@ function BenefactorListItem(benefactor) {
             });
             const donation = mutationResponse.data.addDonation
             addToCart(donation);
+            toggle();
         } catch(e){
             console.log(e);
         }
@@ -46,19 +49,21 @@ function BenefactorListItem(benefactor) {
         }
     return (
 
-        <div>
-
         <div className='benefactor-list-item' itemID={_id}>
-            <h4>{name}</h4>
-            <p>{age}</p>
-            <p>{about}</p>
-            <button onClick={toggle}>test open donation modal</button>
-        </div>
+            <Card top width="100%">
+                <CardHeader>{name}</CardHeader>
+                <CardBody>
+                <CardTitle>{age} years old</CardTitle>
+                <CardText>{about}</CardText>
+                <Button className='donationButtons' onClick={toggle}>Enter donation</Button>
+                </CardBody>
+            </Card>
+                
 
         <Modal  isOpen={modal} toggle={toggle} >
             <ModalHeader >{name}</ModalHeader>
             <ModalBody>
-                <div>Age:{age}</div>
+                <div>Age: {age}</div>
                 <div>A little bit about <strong>{name}</strong></div>
                 <div>{about}</div>
                 <div>{name} would welcome your support!</div>
@@ -68,8 +73,8 @@ function BenefactorListItem(benefactor) {
                 </InputGroup>       
             </ModalBody>
             <ModalFooter>
-            <Button onClick={handleFormSubmit}>Submit Donation</Button>
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button color="primary" onClick={handleFormSubmit}>Submit Donation</Button>
+            <Button onClick={toggle}>Cancel</Button>
             </ModalFooter>
         </Modal>
 

@@ -8,7 +8,7 @@ function Hero() {
 						<div class="row">
 							<div class="col-7 col-12-medium">
 								<h2>Hi. This is BoostMe.</h2>
-								<p>We are a 4H donation app that encourages members to support 4H members on their projects.</p>
+								<p>An app that connects donors with 4H members who are raising livestock projects. By donating to these projects, donors are supporting the 4H mission of providing meaningful opportunities for youth and adults to work together creating sustainable community change.</p>
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>

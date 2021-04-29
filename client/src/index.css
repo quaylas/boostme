@@ -1571,6 +1571,9 @@ input, select, textarea {
 	form input[type="password"],
 	form input[type="firstName"],
 	form input[type="lastName"],
+	form input[type="benefactorName"],
+	form input[type="age"],
+	form input[type="about"],
 	form select,
 	form textarea {
 		-webkit-appearance: none;
@@ -1585,6 +1588,9 @@ input, select, textarea {
 		form input[type="password"]:focus,
 		form input[type="firstName"]:focus,
 		form input[type="lastName"]:focus,
+		form input[type="benefactorName"]:focus,
+		form input[type="age"]:focus,
+		form input[type="about"]:focus,
 		form select:focus,
 		form textarea:focus {
 			border-color: #0090c5;
@@ -1594,7 +1600,10 @@ input, select, textarea {
 	form input[type="email"],
 	form input[type="firstName"],
 	form input[type="lastName"],
-	form input[type="password"] {
+	form input[type="password"],
+	form input[type="benefactorName"],
+	form input[type="age"],
+	form input[type="about"] {
 		line-height: 3em;
 		padding: 0 1em;
 	}

@@ -54,7 +54,7 @@ function DonationHistory() {
                     </li>
                 ))}
             </ul>
-            ) : (<div>No donations yet!</div>)}
+            ) : (<div style={{color: 'white'}}>No donations yet!</div>)}
             { loading ? <div>Please give us a second to load ...</div> : null }
         </div>
 

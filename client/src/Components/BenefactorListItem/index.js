@@ -48,7 +48,7 @@ function BenefactorListItem(benefactor) {
         }
     return (
 
-        <div className='benefactor-list-item' style={{display: 'flex', font: 'inherit'}} itemID={_id}>
+        <div className='benefactor-list-item' itemID={_id}>
             <Card top width="100%">
                 <CardHeader>{name}</CardHeader>
                 <CardBody>

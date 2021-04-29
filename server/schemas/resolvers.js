@@ -2,7 +2,7 @@ const { AuthenticationError, UserInputError } = require('apollo-server-express')
 const { User, Donation, Benefactor, Order } = require('../models');
 
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
     Query: {
@@ -112,24 +112,24 @@ const resolvers = {
 
         checkout: async(parent, args, context) => {
             const url = new URL(context.headers.referer).origin;
-            const order = new Order({ donations: args.donations });
-            const { donations } = await order.populate('donations').execPopulate();
+            const order = new Order({ donations: args.products });
+            
+            const { products } = await order.populate('donations').execPopulate();
 
             const line_items = [];
 
-            for(let i = 0; i < donations.length; i++){
-                const donation = await stripe.products.create({
-                    benefactor: donations[i].benefactor,
-                    amount: products[i].amount,
-                    message: donations[i].message
+            for(let i = 0; i < order.donations.length; i++){
+                const product = await stripe.products.create({
+                    name: order.donations[i].benefactor
                 });
+                console.log(product);
                 
                 const price = await stripe.prices.create({
-                    donation: donation.id,
-                    unit_amount: donation[i].price*100,
+                    product: product.id,
+                    unit_amount: order.donations[i].amount*100,
                     currency: 'usd'
                 });
-
+                console.log(price);
                 line_items.push({
                     price: price.id,
                     quantity: 1

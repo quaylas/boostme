@@ -8,7 +8,7 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { loadStripe } from '@stripe/stripe-js';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/react-hooks';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -19,8 +19,6 @@ const Cart = () => {
     useEffect(() => {
         async function getCart() {
             const cart = await idbPromise('cart', 'get');
-            console.log(cart.length);
-            console.log(state.cart);
             dispatch({
                 type: ADD_MULTIPLE_TO_CART,
                 donations: [...cart]
@@ -33,6 +31,7 @@ const Cart = () => {
     }, [state.cart.length, dispatch]);
 
     useEffect(() => {
+        console.log(data);
         if (data) {
             stripePromise.then((res) => {
                 res.redirectToCheckout({ sessionId: data.checkout.session });
@@ -48,7 +47,6 @@ const Cart = () => {
         let sum = 0;
         state.cart.forEach(item => {
             sum += item.amount;
-            console.log(typeof(item.amount));
         });
         return sum.toFixed();
     };
@@ -59,9 +57,9 @@ const Cart = () => {
         state.cart.forEach((item) => {
             donationIds.push(item._id);
         });
-
+        console.log(donationIds);
         getCheckout({
-            variables: { donations: donationIds }
+            variables: { products: donationIds }
         });
     };
 

@@ -12,7 +12,9 @@ const Dashboard = () => {
     return (
     <div style={{display: 'flex'}}>
         <Cart/>
-        <div >
+      
+          <div>
+
           <DonationHistory />
           </div>
           

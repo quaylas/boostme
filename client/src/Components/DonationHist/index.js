@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Logo from '../Logo/Logo';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_ME } from '../../utils/queries';
 import { UPDATE_DONATIONS } from '../../utils/actions';
@@ -33,7 +34,10 @@ function DonationHistory() {
     
 
     return (
+
+
         <div className='containersidebar'>
+            <Logo />
             {state.donations.length ? (
             <ul className="admin-menu">
             <h3 style={{color: 'white'}}>My Donation History</h3><br></br>
@@ -51,6 +55,7 @@ function DonationHistory() {
             ) : (<div>No donations yet!</div>)}
             { loading ? <div>Please give us a second to load ...</div> : null }
         </div>
+
 
     );
 };

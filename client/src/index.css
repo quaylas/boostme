@@ -220,10 +220,20 @@ input, select, textarea {
 	}
 
 	.containersidebar {
-		height: 700px;
+/* 		height: 900px;
 		width: 218px;
 		background-color: #0090C5;
-		color: white;
+		color: white; */
+			height: 100%; /* Full-height: remove this if you want "auto" height */
+			width: 240px; /* Set the width of the sidebar */
+			position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+			z-index: 1; /* Stay on top */
+			top: 0; /* Stay at the top */
+			left: 0;
+			background-color: #0090C5; /* Black */
+			overflow-x: hidden; /* Disable horizontal scroll */
+			padding-top: 20px;
+		
 
 	}
 
@@ -1999,6 +2009,7 @@ input, select, textarea {
 		position: absolute;
 		right: 0;
 		top: 0;
+		padding-right: 5%;
 		font-size: 0.9em;
 	}
 

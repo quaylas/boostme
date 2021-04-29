@@ -88,6 +88,15 @@ input, select, textarea {
 	appearance: none;
 }
 
+.benefactor-list-item {
+	font: inherit;
+	border: solid;
+	border-color: gray;
+	border-width: 1px;
+	margin: 10px;
+	padding: 10px;
+}
+
 /* Basic */
 
 	@-ms-viewport {

@@ -48,17 +48,23 @@ function BenefactorListItem(benefactor) {
 
         <div>
 
-        <div className='benefactor-list-item' itemID={_id}>
-            <h4>{name}</h4>
-            <p>{age}</p>
-            <p>{about}</p>
-            <button onClick={toggle}>test open donation modal</button>
+        <div className='benefactor-list-item' style={{display: 'flex', font: 'inherit'}} itemID={_id}>
+            <div>
+                <h4>  {name}</h4>
+                <ul> 
+                Age: {age}{<br></br>}
+                About: {about}
+            </ul>
+        </div>
+            <div>
+            <Button color="primary" onClick={toggle}>Enter donation</Button>
+            </div>
         </div>
 
         <Modal  isOpen={modal} toggle={toggle} >
             <ModalHeader >{name}</ModalHeader>
             <ModalBody>
-                <div>Age:{age}</div>
+                <div>Age: {age}</div>
                 <div>A little bit about <strong>{name}</strong></div>
                 <div>{about}</div>
                 <div>{name} would welcome your support!</div>
@@ -68,8 +74,8 @@ function BenefactorListItem(benefactor) {
                 </InputGroup>       
             </ModalBody>
             <ModalFooter>
-            <Button onClick={handleFormSubmit}>Submit Donation</Button>
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button color="primary" onClick={handleFormSubmit}>Submit Donation</Button>
+            <Button onClick={toggle}>Cancel</Button>
             </ModalFooter>
         </Modal>
 

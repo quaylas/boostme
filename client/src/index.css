@@ -36,8 +36,12 @@ carousel {
 .card-header {
 	color: #0090C5 !important;
 	font-size: 1.5em;
-	font-weight: bold;
+	
 
+}
+
+.modal-title h5 {
+	color: #0090c5 !important;
 }
 
 

@@ -2,8 +2,8 @@ import React, {useState } from 'react';
 import { idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, InputGroupText, Input, } from 'reactstrap';
-import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
-import { useLazyQuery, useMutation } from '@apollo/react-hooks';
+import { ADD_TO_CART } from "../../utils/actions"
+import { useMutation } from '@apollo/react-hooks';
 import {ADD_DONATION} from "../../utils/mutations"
 import { Card, CardHeader, CardBody,
     CardTitle, CardText } from 'reactstrap';
@@ -51,7 +51,7 @@ function BenefactorListItem(benefactor) {
 
         <div className='benefactor-list-item' itemID={_id}>
             <Card top width="100%">
-                <CardHeader>{name}</CardHeader>
+                <CardHeader tag='h5'>{name}</CardHeader>
                 <CardBody>
                 <CardTitle>{age} years old</CardTitle>
                 <CardText>{about}</CardText>
@@ -61,19 +61,15 @@ function BenefactorListItem(benefactor) {
                 
 
         <Modal  isOpen={modal} toggle={toggle} >
-            <ModalHeader >{name}</ModalHeader>
+            <ModalHeader>Donating to: {name}</ModalHeader>
             <ModalBody>
-                <div>Age: {age}</div>
-                <div>A little bit about <strong>{name}</strong></div>
-                <div>{about}</div>
-                <div>{name} would welcome your support!</div>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">$</InputGroupAddon>
                     <Input name="amount" onChange={handleChange} className="modaltextarea donationamount" placeholder="Amount" min={1} max={10000000} type="number" step="1" /> 
                 </InputGroup>       
             </ModalBody>
             <ModalFooter>
-            <Button color="primary" onClick={handleFormSubmit}>Submit Donation</Button>
+            <Button className="donationButtons" onClick={handleFormSubmit}>Submit Donation</Button>
             <Button onClick={toggle}>Cancel</Button>
             </ModalFooter>
         </Modal>

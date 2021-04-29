@@ -20,16 +20,7 @@ const Dashboard = () => {
           <BenefactorList />
           </div>
 
-         <div className="container2">
-            <BenefactorListItem />
-        </div> 
-
       </div>
-
-
-       
-  
-
 
  /*        <div>
         <header class="page-header">

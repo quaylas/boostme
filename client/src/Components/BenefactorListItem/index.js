@@ -5,6 +5,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGr
 import { ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions"
 import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import {ADD_DONATION} from "../../utils/mutations"
+import { Card, CardHeader, CardBody,
+    CardTitle, CardText } from 'reactstrap';
 
 function BenefactorListItem(benefactor) {
     const [addDonation, {error}] = useMutation(ADD_DONATION)
@@ -46,20 +48,16 @@ function BenefactorListItem(benefactor) {
         }
     return (
 
-        <div>
-
         <div className='benefactor-list-item' style={{display: 'flex', font: 'inherit'}} itemID={_id}>
-            <div>
-                <h4>{name}</h4>
-                <ul className='ul2'> 
-                Age: {age}{<br></br>}
-                About: {about}
-            </ul>
-            </div>
-                <div>
+            <Card top width="100%">
+                <CardHeader>{name}</CardHeader>
+                <CardBody>
+                <CardTitle tag="h5">Age {age}</CardTitle>
+                <CardText>{about}</CardText>
                 <Button color="primary" onClick={toggle}>Enter donation</Button>
-                </div>
-            </div>
+                </CardBody>
+            </Card>
+                
 
         <Modal  isOpen={modal} toggle={toggle} >
             <ModalHeader >{name}</ModalHeader>

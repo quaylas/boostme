@@ -16,6 +16,10 @@ carousel {
   height: 500px;
 }
 
+.card {
+	min-width: 500px !important;
+}
+
 
 /*                      */
 
@@ -90,9 +94,6 @@ input, select, textarea {
 
 .benefactor-list-item {
 	font: inherit;
-	border: solid;
-	border-color: gray;
-	border-width: 1px;
 	margin: 10px;
 	padding-left: 10px;
 	align-items: center;

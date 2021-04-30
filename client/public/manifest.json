@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BoostMe",
+  "name": "BoostMe 4H",
+  "description": "An app that encourages donations to 4H participants by streamlining the process",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,10 +17,55 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src":"../src/assets/images/2017-08-11_11-25-15_708.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2017-08-12_13-43-28_493 (1).jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2017-08-15_23-11-34_491.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2017-08-15_23-12-02_064.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2019-08-03_10-32-45_586.jpg",
+      "type": "image/jpg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2019-08-07_13-51-07_917.jpg",
+      "type": "image/jpg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2019-08-10_14-07-21_875.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2020-08-07_08-35-05_481.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1427x951"
+    },
+    {
+      "src":"../src/assets/images/2020-08-07_15-30-05_247.jpg",
+      "type": "image/jpg",
+      "sizes": "1427x951"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0090C5",
   "background_color": "#ffffff"
 }

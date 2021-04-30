@@ -16,7 +16,12 @@ const benefactorSchema = new Schema({
         type: Number,
         required: true
     },
-    donations: [Donation.schema]
+    donations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Donation'
+        }
+    ]
 },
 {
     toJSON: {

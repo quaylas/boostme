@@ -45,6 +45,7 @@ query getBenefactors {
         benefactorName
         about
         age
+        donationTotal
         donations {
             _id
             donationDate

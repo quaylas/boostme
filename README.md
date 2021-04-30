@@ -3,7 +3,7 @@
 
 ## Description
 
-This is a Donation site for the 4H and community
+This is a donation website for the 4H community. It takes in donations for individuals that are working on live projects and need financial help. It allows both donors and  benefactors to monitor donations.
 
 ## Table of Contents
 * [Installation](#installation)
@@ -13,30 +13,41 @@ This is a Donation site for the 4H and community
          
 ## installation 
 
-This is a donation website for the 4H community. It takes in donations for individuals that are working on live projects and need financial help. It allows both donors , and  benefactors to monitor donations.
+This application is deployed and not intended to be installed. 
+
+If you wish to install the application, clone the repository and run `$npm start` from the command line in the root directory. Note that packages may take some time to install.
 
 ## Usage
 
-Please visit this web site at [placeholder]
+Please visit the [live site](https://boostme-0421.herokuapp.com/). 
 
 ## Features
 
-Uer login and signup. dashboard for donation info. stripe for checkout, 
+User may log in or sign up using their email address. Once authenticated, they may select benefactors to receive their donations and have their payments processed through Stripe. 
 
 ## Testing 
 
-to test this website please visit us at [Placeholder]
+There are currently no tests available for this application.
+To view the deployed version, please visit us at https://boostme-0421.herokuapp.com/.
 
 ## Credits
 
-Malachi Alusa, Quayla Skevington, Janele Leatham, Nick Ovalles
+### Back End
+Malachi Alusa, Quayla Skevington
+
+### Front End 
+Janele Leatham, Nick Ovalles
 
 ## License:
 
-For more information on the Licence on this Project visit https://opensource.org/licenses/ISC
+For more information on the licence on this project, visit https://opensource.org/licenses/ISC
 
 ## Questions 
 
 If you have any questions about this project, or if you run into any issues please contact us at one of the following emails  malachialusa@gmail.com, quayla@cxadvisors.com, nick.ovalles@gmail.com
-or you can also find us on GitHub.com my username is tonganknight  Please visit our  profiles  at https://github.com/quaylas https://github.com/jleatham78 https://github.com/nickovalles
+or you can also find us on GitHub.com. Please visit our profiles:
+[Malachi Alusa](https://github.com/tonganknight/)
+[Quayla Skevington](https://github.com/quaylas)
+[Janele Leatham](https://github.com/jleatham78)
+[Nick Ovalles](https://github.com/nickovalles)
 

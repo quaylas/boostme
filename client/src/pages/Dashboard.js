@@ -5,17 +5,14 @@ import Cart from '../Components/Cart';
 
 const Dashboard = () => {
     return (
-    <div style={{display: 'flex'}}>
-        <Cart/>
-      
-          <div>
+    <div className='dashboardContainer' style={{display: 'flex'}}>
 
           <DonationHistory />
-          </div>
           
           <div className="container2">
           <BenefactorList />
           </div>
+        <Cart />
 
       </div>
        

@@ -50,7 +50,7 @@ function BenefactorListItem(benefactor) {
     return (
 
         <div className='benefactor-list-item' itemID={_id}>
-            <Card top width="100%">
+            <Card className='benefactorCard'>
                 <CardHeader tag='h5'>{name}</CardHeader>
                 <CardBody>
                 <CardTitle>{age} years old</CardTitle>

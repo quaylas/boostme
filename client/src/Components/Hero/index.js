@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
- 
+
 function Hero() {
     return (
 <div id="banner-wrapper">
@@ -10,7 +10,7 @@ function Hero() {
 								<h2>Hi. This is BoostMe.</h2>
 								<p>An app that connects donors with 4H members who are raising livestock projects. By donating to these projects, donors are supporting the 4H mission of providing meaningful opportunities for youth and adults to work together creating sustainable community change.</p>
 							</div>
-							<div class="col-5 col-12-medium">
+							<div class="col-5 col-12-medium homeButtons">
 								<ul>
 									<li>
 										<Link to='/signup' class="button large icon solid fa-arrow-circle-right">Donate Now!

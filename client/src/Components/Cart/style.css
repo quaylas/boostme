@@ -60,11 +60,11 @@
     
     @media screen and (max-width: 768px) {
     .cart {
-        position: relative;
+        position: absolute;
         max-width: 100%;
         max-height: auto;
         box-shadow: none;
-        background-color: inherit;
+        background-color: white;
     }
     
     .cart-closed {

@@ -36,8 +36,8 @@ function DonationHistory() {
     return (
 
 
-        <div className='containersidebar'>
-            <Logo />
+        <div className='container2 donationOuter'>
+            
             {state.donations.length ? (
             <ul className="admin-menu">
             <h3 style={{color: 'white'}}>My Donation History</h3><br></br>

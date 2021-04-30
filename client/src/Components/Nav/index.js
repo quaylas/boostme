@@ -16,12 +16,12 @@ import {
                 <nav id="nav">
                     <ul>
                         <li>
-                        <Link to='/'>
+                        <Link to='/' className='homeLink'>
                             Home
                         </Link>
                         </li>
                         <li>
-                        <Link to='/dashboard'>
+                        <Link to='/dashboard' >
                             My Dashboard
                         </Link>
                         </li>
@@ -42,7 +42,6 @@ import {
                       <Link to='/home' onClick={() => Auth.logout()}>
                       Log Out
                       </Link>
-  
                     </li>
                     </ul>
                 </nav>

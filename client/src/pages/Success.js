@@ -29,7 +29,7 @@ function Success() {
     },  [addOrder]);
 
     return (
-        <div>
+        <div className='container2'>
             <h2>Success!</h2>
             <div>Thank you for your donation!</div>
             <div>You will now be redirected to your dashboard.</div>

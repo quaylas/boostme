@@ -19,7 +19,7 @@ const CartItem = ({ item }) => {
     return (
         <div>
             <div>{item.benefactor}, {item.amount}
-                <span role="img" aria-label="trash" onClick={() => removeFromCart(item)}>🗑️</span>
+                <span role="img" aria-label="trash" onClick={() => removeFromCart(item)}> 🗑️</span>
             </div>
         </div>
     );

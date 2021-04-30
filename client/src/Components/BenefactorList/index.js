@@ -13,7 +13,7 @@ import { UPDATE_BENEFACTORS } from '../../utils/actions';
 function BenefactorList() {
     const [state, dispatch] = useStoreContext();
     const { loading, data } = useQuery(QUERY_ALL_BENEFACTORS);
-
+    
     useEffect(() => {
         if(data) {
             console.log(data);

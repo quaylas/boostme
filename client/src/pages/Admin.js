@@ -17,6 +17,7 @@ function Admin(props) {
             about: formState.about
         }
         });
+        console.log(mutationResponse);
         } catch (e) {
             console.log(e)
         }
